@@ -1,0 +1,114 @@
+
+<html>
+    <header>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="registration.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <style>
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+          }
+          
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover:not(.active) {
+            background-color: #111;
+          }
+          
+          .active {
+            background-color: #04AA6D;
+          }
+          </style>
+          </head>
+          <body>
+          
+          <ul>
+            <li><a  href="index.html">Home</a></li>
+            <li><a href="Registration1.html">Registration</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+          <h1 id="title">Contact Us</h1>
+          </body>
+          </header
+    <body>
+    <p id="description">Any help Needed Please contact Below:</p>
+    
+    <form id="survey-form">
+      
+      <div class="input-headings">
+        <label for="dropdown" id="model" >Contact Type?</label>
+      <select id="dropdown" class="form-inputs">
+        <option selected disabled>Please slect Below options</option>
+        <option value="Human Resource">Human Resource</option>
+        <option value="Financial">Financial</option>
+      </select>
+      <br><br>
+       
+      <lable for="name" id="name-label">Contact Name:</lable>
+      <input type="text" id="name" name="name"placeholder="Ajay Kumar" class="form-inputs" Required><br><br>
+      
+       <lable for="email" id="email-label">Email Id:</lable>
+      <input type="email" id="email" name="email" placeholder="ajayxxxxx@ajay.com" class="form-inputs" Required><br><br>
+      <lable for="number" id="number-label">Mobile number:</lable>
+      <input type="text" id="number" name="number" placeholder="+91XXXXXXXX" class="form-inputs" required><br><br>   
+      
+    
+    <label id="textarea">Reason:</label>
+    
+    <br>
+    <textarea id="textarea" name="textarea" name="instructions" row="5" cols="65">
+    </textarea>
+    <br><br>
+    <input id="submit" type="submit" Value=Submit class="submit-button"></input>
+    <input  type="submit" Value=Reset class="submit-button"></input>
+    <input  type="submit" Value=Cancel class="submit-button"></input>
+     <div> 
+    </form>
+   
+    <script>
+
+      let users=[];
+       const addUser = (ev)=>{
+         ev.preventDefault();
+            let user = {
+               dropdown: document.getElementById('dropdown').value,
+               name : document.getElementById('name').value,
+               email : document.getElementById('email').value,
+               number: document.getElementById('number').value,
+               textarea: document.getElementById('textarea').value
+            }
+
+            users.push(user);
+            document.forms[0].reset();
+
+
+            console.warn('added',{ users});
+            let pre = document.querySelector('#pre msg');
+            pre.textContent = '\n' +JSON.stringify(users, '\t', 5);
+ 
+       }
+      document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById('submit').addEventListener('click',addUser);
+      });
+
+    </script>
+
+
+    </body>
+    </html>
